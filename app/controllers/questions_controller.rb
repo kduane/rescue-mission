@@ -2,11 +2,16 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    # @questions.order(timestamp: :desc)
   end
 
   def show
     @question = Question.find(params[:id])
     render :show
+  end
+
+  def new
+    @question = Question.new
   end
 
   def create
