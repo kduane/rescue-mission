@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    binding.pry
+
     if @question.save
       flash[:notice] = 'Thank you for your question'
       redirect_to @question
@@ -20,8 +20,11 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def delete
-    
+  def search
+    query = "%#{params[:query]}%"
+    @Questions = Question
+      .where('title ilike ? or description ilike ? or url ilike ?',
+             query, query, query)
   end
 
 end
