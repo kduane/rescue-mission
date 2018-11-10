@@ -3,10 +3,9 @@
 <%= link_to 'Ask a question', new_question_path %>
 
 <% @questions.each do |question| %>
-  <h2><%= question.title %></h2>
+  <h2><%= link_to "#{question.title}", question_path(question) %></h2>
   <p><%= question.description %></p>
   <ul>
-    <%= link_to 'Show' %>
     <%= link_to 'Answer'%>
   </ul>
 <% end %>

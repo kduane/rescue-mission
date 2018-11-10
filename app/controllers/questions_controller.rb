@@ -15,8 +15,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    binding.pry
     @question = Question.new(question_params)
-
     if @question.save
       flash[:notice] = 'Thank you for your question'
       redirect_to @question
@@ -30,6 +30,12 @@ class QuestionsController < ApplicationController
     @Questions = Question
       .where('title ilike ? or description ilike ? or url ilike ?',
              query, query, query)
+  end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:title, :description)
   end
 
 end
