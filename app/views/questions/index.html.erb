@@ -1,11 +1,10 @@
-<h1>All Questions</h1>
-
-<%= link_to 'Ask a question', new_question_path %>
+<h1>What has been asked</h1>
 
 <% @questions.each do |question| %>
-  <h2><%= link_to "#{question.title}", question_path(question) %></h2>
+  <%= render partial: "question", object: question %>
+  <!-- <h2><%= link_to "#{question.title}", question_path(question) %></h2>
   <p><%= question.description %></p>
   <ul>
     <%= link_to 'Answer'%>
-  </ul>
+  </ul> -->
 <% end %>
