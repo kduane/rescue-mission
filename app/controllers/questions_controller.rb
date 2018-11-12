@@ -2,7 +2,11 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.reverse
-    # @questions.order(timestamp: :desc)
+  end
+
+  def answers
+    @question = Question.find(params[:question_id])
+    @answers = @question.answers.reverse
   end
 
   def show
@@ -21,7 +25,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Thank you for your question'
       redirect_to @question
     else
-      render action :new
+      render :new
     end
   end
 
