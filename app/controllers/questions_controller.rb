@@ -4,10 +4,9 @@ class QuestionsController < ApplicationController
     @questions = Question.all.reverse
   end
 
-  def answers
-    @question = Question.find(params[:question_id])
-    @answers = @question.answers.reverse
-  end
+  # def answers
+  #   @question = Question.find(params[:question_id])
+  # end
 
   def show
     @question = Question.find(params[:id])

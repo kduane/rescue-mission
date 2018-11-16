@@ -6,9 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do
+10.times do
   Question.create(
     title: Faker::Hipster.word,
     description: Faker::Hipster.paragraph
   )
+end
+
+Question.all.each do |question|
+  3.times do
+    Answer.create(
+      question_id: question.id,
+      body: Faker::Hipster.paragraph
+    )
+  end
 end

@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.string :description, null: false
       t.belongs_to :user
-      
+
       t.timestamps
     end
 

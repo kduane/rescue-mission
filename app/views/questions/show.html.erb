@@ -3,6 +3,6 @@
 
 <%= link_to 'Submit an Answer', new_question_answer_path(@question) %>
 
-<% @question.answers.each do |answer| %>
-  <p><%= answer.description%></p>
+<% @question.answers.reverse.each do |answer| %>
+  <p><%= answer.body%></p>
 <% end %>
